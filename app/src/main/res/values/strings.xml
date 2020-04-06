@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">User Rating</string>
+    <string name="rating_history">Rating History</string>
 </resources>
