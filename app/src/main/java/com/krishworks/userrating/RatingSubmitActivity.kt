@@ -1,9 +1,12 @@
 package com.krishworks.userrating
 
+import android.content.ContentValues
+import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.krishworks.userrating.data.*
+import com.krishworks.userrating.helpers.UserDbHelper
 import kotlinx.android.synthetic.main.activity_rating_submit.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -38,7 +41,7 @@ class RatingSubmitActivity : AppCompatActivity() {
             val value = rating_bar.rating
             rating_bar.setIsIndicator(true)
 
-            Toast.makeText(this, "$value ${currentTime()} ${currentDate()}", Toast.LENGTH_SHORT).show()
+            insertData(value.toString(), currentTime(), currentDate())
         }
     }
 
@@ -52,5 +55,24 @@ class RatingSubmitActivity : AppCompatActivity() {
         val sdf = SimpleDateFormat("dd/MM/yyyy")
         val resultDate = Date(System.currentTimeMillis())
         return sdf.format(resultDate)
+    }
+
+    private fun insertData(rating: String, time: String, date: String) {
+        val userDbHelper = UserDbHelper(this)
+
+        val db: SQLiteDatabase = userDbHelper.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_RATING, rating)
+        contentValues.put(COLUMN_TIME, time)
+        contentValues.put(COLUMN_DATE, date)
+
+        val result = db.insert(TABLE_NAME, null, contentValues)
+
+        if (result.equals(-1)) {
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+        }
     }
 }
