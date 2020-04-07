@@ -24,4 +24,13 @@
         android:text="@string/rating_history"
         android:textAllCaps="false"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/modify_rating_range_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/modify_rating_range"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
 </LinearLayout>

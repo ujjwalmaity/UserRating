@@ -2,8 +2,8 @@ package com.krishworks.userrating.data
 
 import android.provider.BaseColumns
 
-const val min_rating: Int = 1
-const val max_rating: Int = 5
+var min_rating: Int = 1
+var max_rating: Int = 5
 
 const val TABLE_NAME = "user_rating"
 

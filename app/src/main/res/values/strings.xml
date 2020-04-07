@@ -2,4 +2,8 @@
     <string name="app_name">User Rating</string>
     <string name="rating_history">Rating History</string>
     <string name="submit">SUBMIT</string>
+    <string name="modify_rating_range">Modify Rating Range</string>
+    <string name="select_minimum_rating_value">Select minimum\nrating value</string>
+    <string name="select_maximum_rating_value">Select maximum\nrating value</string>
+    <string name="modify_range">Modify Range</string>
 </resources>
