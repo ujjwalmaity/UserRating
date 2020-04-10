@@ -9,8 +9,8 @@ import kotlinx.android.synthetic.main.activity_rating_range.*
 
 class RatingRangeActivity : AppCompatActivity() {
 
-    var min = 0
-    var max = 0
+    var min = 10
+    var max = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
